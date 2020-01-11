@@ -8,9 +8,10 @@ const request=require('request')
         }else if(body.error){
            callback('unable to find location',undefined)
         }else{
+           console.log(body.daily.data[0])
             callback(undefined,{
-               summary: body.daily.data[0].summary 
-
+               summary: body.daily.data[0].summary + body.daily.data[0].temperatureLow +'.'+ body.daily.data[0].temperatureHigh
+             
             })
         }
     })
